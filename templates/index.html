@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<h1>Devadathan Namboothiri P</h1>
+<h2>Python Developer | Salesforce Developer</h2>  
+<a href="{{ url_for('static', filename='Devadathan_Namboothiri_Resume.pdf') }}" download>Download Resume</a>
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">About me:<br>
+    Hi, I am Devadathan Namboothiri P, a self taught software developer based in Trivandrum.I love turning complex problems into clean, easy-to-use code.
+    I am currently looking for Python Developer or Salesforce Developer roles.
+</section>
+
+
+<section id="projects">PROJECTS
+        {% if error %}
+            <p>{{ error }}</p>
+            <a href="{{ github_url }}" target="_blank">Go to GitHub Profile
+            </a>
+
+        {% endif %}
+    
+        
+        {% for project in projects %}
+                <div class="projects">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                    <a href="{{ project.link }}">View on GitHub</a>
+                </div>
+        {% endfor %}
+</section>
+<section id="contact">Contact <br>
+    <a href="mailto:devadathannamboothirip1@gmail.com">Email</a>
+    <a href="https://github.com/Devadathan-dev">Github</a>
+    <a href="https://www.linkedin.com/in/dn2002/">LinkedIn</a>
+</section>
+</body>
+</html>
